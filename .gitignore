@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+
+# agentlink (generated symlinks — run `npm run ai:sync` to recreate)
+.ai/.agentlink-state.json
+/AGENTS.md
+/CLAUDE.md
+.cursor/skills/
+.claude/
