@@ -13,6 +13,41 @@ A minimal, production-ready boilerplate for building **Model Context Protocol (M
 - ESLint + Prettier for code quality
 - Multi-stage Docker build for lightweight images
 
+## Quick Start — Create Your MCP Server
+
+### Option 1: GitHub Template (recommended)
+
+Click **"Use this template"** on the [repository page](https://github.com/bohorquezod/mcp-node-stdio-boilerplate) to create a new repo from this boilerplate.
+
+Then clone your new repo and set it up:
+
+```bash
+git clone https://github.com/<your-user>/<your-mcp-server>.git
+cd <your-mcp-server>
+npm install
+```
+
+### Option 2: degit (no git history)
+
+```bash
+npx degit bohorquezod/mcp-node-stdio-boilerplate my-mcp-server
+cd my-mcp-server
+npm install
+git init
+```
+
+### After cloning
+
+1. Update `package.json` with your project name, description, and version.
+2. The server name and version in `src/index.ts` are read automatically from `package.json` via `src/constants/server.ts` — no extra changes needed.
+3. Remove the example features you don't need from `src/tools/`, `src/resources/`, and `src/prompts/` (and their registrations in each `index.ts`).
+4. Add your own tools, resources, and prompts following the patterns described below.
+5. Sync AI agent instructions to your IDE:
+
+```bash
+npm run ai:sync
+```
+
 ## Prerequisites
 
 **With Node.js** (for local development):
@@ -24,15 +59,13 @@ A minimal, production-ready boilerplate for building **Model Context Protocol (M
 
 - Docker
 
-## Getting Started
-
-### Local Development
+## Development
 
 ```bash
 # Install dependencies
 npm install
 
-# Run in development mode (auto-reload)
+# Run in development mode (watch + auto-restart)
 npm run dev
 
 # Build for production
@@ -40,6 +73,9 @@ npm run build
 
 # Run the production build
 npm start
+
+# Type-check without emitting
+npm run typecheck
 ```
 
 ### Docker
